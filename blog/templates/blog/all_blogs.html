@@ -1,0 +1,10 @@
+{% extends 'portfolio/avdes.html' %}
+{% block content %}
+<h2>Here are {{ projects.count }} written blog{{projects.count|pluralize }}</h2>
+<p style="text-align:center; font-size: 40px" ><strong>Blog</strong></p>
+    {%  for project in projects %}
+<a href="{{ project.id }}"><h1 style="color: darkblue">{{ project.title }}</h1></a>
+<p style="color: gray" >{{ project.time|date:'M D d Y' }}</p>
+<p><strong>{{ project.description|safe|truncatechars:100 }}</strong></p>
+{% endfor %}
+{% endblock %}
